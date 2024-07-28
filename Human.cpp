@@ -5,13 +5,16 @@ Human::Human()
     Player::setName("Human");
 }
 
-Human::Human(std::string &name) : Player(name)
+Human::Human(const std::string &name) : Player(name)
 {}
 
 char Human::makeMove()
 {
     char move;
-    std::cout << "Enter move: ";
-    std::cin >> move;
+    do {
+        std::cout << "Enter move: ";
+        std::cin >> move;
+        
+    } while (move != 'R' && move != 'P' && move != 'S');
     return move;
 }

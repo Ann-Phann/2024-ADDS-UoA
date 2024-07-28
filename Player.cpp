@@ -2,10 +2,10 @@
 
 Player::Player()
 {
-    move = 'N';
+
     name = "Null";
 }
-Player::Player(std::string& name)
+Player::Player(const std::string& name)
 {
     this->name = name;
 }

@@ -5,7 +5,8 @@
 
 int main()
 {
-    Player* p1 = new Human();
+    // Assuming the Human class is defined and included correctly
+    Player* p1 = new Human("Annn");
     Player* p2 = new Computer();
 
     Referee ref; 
@@ -16,7 +17,13 @@ int main()
         std::cout << "It's a Tie." <<std::endl;
 
     } else {
-        std::cout << winner->getName() << "Wins." <<std::endl;
+        std::cout << winner->getName() << " Wins." <<std::endl;
     }
+
+    // Clean up dynamically allocated memory
+    delete p1;
+    delete p2;
+
+
     return 0;
 }

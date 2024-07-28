@@ -10,10 +10,12 @@ private:
     std::string name;
 public:
     Player();
-    Player(std::string& name);
+    Player(const std::string& name);
+
     virtual char makeMove() = 0;
-    // virtual std::string getName() = 0;
     std::string getName();
     void setName(std::string name);
+
+    virtual ~Player() = default;
 };
 #endif
