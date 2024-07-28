@@ -19,3 +19,10 @@ public:
     virtual ~Player() = default;
 };
 #endif
+
+/*
+S: Handles basic player attributes (name) and declares virtual functions. The base class itself adheres to SRP.
+O: The base class is open for extension, as it declares a virtual function that derived classes can override. Open for extension through derived classes (e.g., Human, Computer) but closed for modification.
+L: Derived classes (Human, Computer) can be used interchangeably with Player references or pointers.
+I: Player Class: Only declares the necessary virtual functions. This follows ISP since it doesn't force derived classes to implement unnecessary methods.
+*/
