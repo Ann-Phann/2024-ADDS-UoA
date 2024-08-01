@@ -9,10 +9,23 @@ Player* Referee:: refGame(Player * player1, Player * player2)
     {
         return nullptr;
     }
-
-    for(int i = 0; i < move1->getStrongerAgainst().size(); i++)
+    
+    // std::cout<<move1->getStrongerAgainst().size()<<std::endl;
+    // for(int i = 0; i < move1->getStrongerAgainst().size(); i++)
+    // {
+    //     std::cout<<"i="<<i<<std::endl;
+    //     if (move2->getName() == move1->getStrongerAgainst()[i])
+    //     {
+    //        return player1; 
+    //     }
+    //     // return player1; 
+    // }
+    int x;
+    int y = move1->getStrongerAgainst().size();
+    for (x = 0; x < y; x++)
     {
-        if (move2->getName() == move1->getStrongerAgainst()[i])
+        // std::cout<<"x="<<x<<std::endl;
+        if (move2->getName() == move1->getStrongerAgainst()[x])
         {
             return player1;
         }
