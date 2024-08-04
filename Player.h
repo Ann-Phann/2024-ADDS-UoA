@@ -3,7 +3,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <iostream>
 #include "Move.h"
 #include "Rock.h"
 #include "Paper.h"

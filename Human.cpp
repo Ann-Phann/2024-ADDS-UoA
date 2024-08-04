@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Human.h"
 
 Human::Human() : Player("Human") {}

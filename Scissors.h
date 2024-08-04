@@ -1,9 +1,7 @@
 #ifndef SCISSORS_H
 #define SCISSORS_H
 
-#include <iostream>
 #include "Move.h"
-#include "Paper.h"
 
 class Scissors : public Move
 {

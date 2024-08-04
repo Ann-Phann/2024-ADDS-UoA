@@ -1,8 +1,8 @@
 #ifndef MOVE_H
 #define MOVE_H
 
-#include <iostream>
 #include <vector>
+#include <string>
 class Move {
 private:
     std::string moveName;

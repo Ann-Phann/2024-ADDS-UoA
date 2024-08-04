@@ -1,10 +1,7 @@
 #ifndef MONKEY_H
 #define MONKEY_H
 
-#include <iostream>
 #include "Move.h"
-#include "Ninja.h"
-#include "Robot.h"
 
 class Monkey : public Move
 {

@@ -1,7 +1,6 @@
 #ifndef REFEREE_H
 #define REFEREE_H
 
-#include <iostream>
 #include "Player.h"
 #include "Move.h"
 
