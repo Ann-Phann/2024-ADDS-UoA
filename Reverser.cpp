@@ -4,6 +4,10 @@
 #include <cmath>
 int Reverser::reverseDigit(int number)
 {
+    if(number < 0)
+    {
+        return -1;
+    }
     int result = 0;
     //just have one digit
     if (number < 10)
