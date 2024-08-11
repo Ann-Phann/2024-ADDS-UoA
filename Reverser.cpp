@@ -4,16 +4,19 @@
 #include <cmath>
 int Reverser::reverseDigit(int number)
 {
+    //error handling
     if(number < 0)
     {
         return -1;
     }
     int result = 0;
+
     //just have one digit
     if (number < 10)
     {
         return number;
     }  
+    
     int numLastDigit = number % 10;
     int remainDigit = number / 10;
     
