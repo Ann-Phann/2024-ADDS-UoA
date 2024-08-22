@@ -18,10 +18,10 @@
                 result.push_back(-1);
             }
         }
-        // while (result.size() < s2.size())
-        // {
-        //     result.push_back(-1);
-        // }
+        while (result.size() < s2.size())
+        {
+            result.push_back(-1);
+        }
         return result;
     }
    
