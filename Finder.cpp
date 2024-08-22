@@ -14,10 +14,11 @@
                 //result[i-1] = found;
                 result.push_back(found);
                 last_found = found;
-            } else {
-                result.push_back(-1);
-                break;
-            }
+            } 
+            // else {
+            //     result.push_back(-1);
+            //     break;
+            // }
         }
         while (result.size() < s2.size())
         {
