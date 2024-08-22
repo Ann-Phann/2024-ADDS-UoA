@@ -11,11 +11,11 @@
         for(size_t i = 1; i <= s2.size(); i++) {
             size_t found = s1.find(s2.substr(0, i), last_found);
             if (found != string::npos) {
-                result[i-1] = found;
-                //result.push_back(found);
+                //result[i-1] = found;
+                result.push_back(found);
                 last_found = found;
             } else {
-                //result.push_back(-1);
+                result.push_back(-1);
                 break;
             }
         }
