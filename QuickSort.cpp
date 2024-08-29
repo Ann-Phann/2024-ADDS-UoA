@@ -28,11 +28,11 @@ int QuickSort::partition(std::vector<int>& list ,int start, int end) {
 
     //get pivot
     int pivotIndexNumber;
-if (end - start + 1 >= 3) {
+    if (end - start + 1 >= 3) {
     pivotIndexNumber = start + 2; // third element in the list
-} else {
+    } else {
     pivotIndexNumber = end; // default to the first element if less than 3 elements
-}
+    }
     int pivotValue = list[pivotIndexNumber];
 
     //move pivot to the end of list by swapping index 
