@@ -3,7 +3,8 @@
 // #include "QuickSort.h"
 // #include "RecursiveBinarySearch.h"
 // int main () {
-//     std::vector <int> list = {1,2,3,4,5};
+//     std::vector <int> list = {1, 3, 5, 4, -5, 100, 7777, 2014, 0};
+//     //std::vector <int> list = {8, 80, 3, 56, 32};
 //     // BubbleSort bubble;
 //     // std::vector <int> sorted_list = bubble.sort(list);
 //     // std::cout << "sorted: ";
@@ -22,7 +23,7 @@
 //     std::cout << std::endl;
 
 //     RecursiveBinarySearch recursivesearch;
-//     if (recursivesearch.search(sorted_list, 8)) {
+//     if (recursivesearch.search(sorted_list, 1)) {
 //         std::cout << "True" << std::endl;
 //     } else {
 //         std::cout << "False" <<std::endl;
