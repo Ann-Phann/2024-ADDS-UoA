@@ -1,13 +1,13 @@
 #include "QuickSort.h"
 
 std::vector <int> QuickSort::sort (std::vector<int> list) {
-    if (list.size() < 3) {
-        if (list[0] < list[1]) {
-            return list;
-        } else {
+    if (list.size() < 2) {
+        return list;
+    } else if (list.size() == 2) {
+        if (list[0] > list[1]) {
             std::swap(list[0], list[1]);
-            return list;
-        }
+        }    
+        return list;
     }
     int start = 0;
     int end = list.size() - 1;
