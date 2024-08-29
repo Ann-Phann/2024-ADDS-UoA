@@ -8,7 +8,7 @@ public:
     std::vector <int> sort (std::vector<int> list);
 
 private: 
-    void quicksort (std::vector <int>& list);
-    int partition(std::vector<int>& list ,int low, int high);
+    void quicksort (std::vector <int>& list, int start, int end);
+    int partition(std::vector<int>& list ,int start, int end);
 };
 #endif
