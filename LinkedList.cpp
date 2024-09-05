@@ -98,15 +98,20 @@ bool LinkedList::deletePosition(int pos) {
 }
 
 int LinkedList::get(int pos) const {
+  if (pos < 1) {
+    return std::numeric_limits<int>::max(); // Use
+                                            // std::numeric_limits<int>::max()
+  }
+
   Node *temp = head;
   for (int i = 1; i < pos && temp; ++i) {
     temp = temp->getLink();
   }
 
-  if (!temp) {
-    return std::numeric_limits<int>::max(); // Use
-                                            // std::numeric_limits<int>::max()
-  }
+  // if (!temp) {
+  //   return std::numeric_limits<int>::max(); // Use
+  //                                           // std::numeric_limits<int>::max()
+  // }
 
   return temp->getData();
 }
