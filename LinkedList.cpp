@@ -7,67 +7,57 @@
 LinkedList::LinkedList() : head(nullptr) {}
 
 LinkedList::LinkedList(int *array, int len) : head(nullptr) {
-    for (int i = 0; i < len; ++i) {
-      insertAtEnd(array[i]);
-    }
+  for (int i = 0; i < len; ++i) {
+    insertAtEnd(array[i]);
+  }
 }
 
 LinkedList::~LinkedList() {
-    while (head) {
-      Node *temp = head;
-      head = head->getLink();
-      delete temp;
+  while (head) {
+    Node *temp = head;
+    head = head->getLink();
+    delete temp;
   }
 }
 
 void LinkedList::insertAtFront(int newNum) {
-    Node *newNode = new Node(newNum, head);
-    head = newNode;
+  Node *newNode = new Node(newNum, head);
+  head = newNode;
 }
 
-// void LinkedList::insertAtFront(int newNum) {
-//     Node *newNode = new Node(newNum);
-//     newNode->setLink(head);
-//     head = newNode;
-// }
 void LinkedList::insertAtEnd(int newNum) {
-    Node *newNode = new Node(newNum, nullptr);
+  Node *newNode = new Node(newNum, nullptr);
 
-    //Check if the list is empty
-    if (!head) {
-      head = newNode;
-      return;
-    }
+  if (!head) {
+    head = newNode;
+    return;
+  }
 
-    Node *temp = head;
-
-    //Traverse the list to the end
-    while (temp != nullptr) {
-      temp = temp->getLink();
-    }
-    // Set the link of the last node to the new node
-    temp->setLink(newNode); //temp at last node
+  Node *temp = head;
+  while (temp->getLink()) {
+    temp = temp->getLink();
+  }
+  temp->setLink(newNode);
 }
 
 void LinkedList::insertPosition(int pos, int newNum) {
-    if (pos <= 1) {
-      insertAtFront(newNum);
-      return;
-    }
+  if (pos <= 1) {
+    insertAtFront(newNum);
+    return;
+  }
 
-    Node *temp = head;
-    for (int i = 1; i < pos - 1 && temp; ++i) {
-      temp = temp->getLink();
-    }
+  Node *temp = head;
+  for (int i = 1; i < pos - 1 && temp; ++i) {
+    temp = temp->getLink();
+  }
 
-    if (!temp) {
-      insertAtEnd(newNum);
-      return;
-    }
-    
-    // Insert the new node between temp and the next node
-    Node *newNode = new Node(newNum, temp->getLink()); //This means the new node's link will be set to what the current temp node was previously pointing to.
-    temp->setLink(newNode);
+  if (!temp) {
+    insertAtEnd(newNum);
+    return;
+  }
+
+  Node *newNode = new Node(newNum, temp->getLink());
+  temp->setLink(newNode);
 }
 
 bool LinkedList::deletePosition(int pos) {
@@ -98,11 +88,6 @@ bool LinkedList::deletePosition(int pos) {
 }
 
 int LinkedList::get(int pos) const {
-  // if (pos < 1) {
-  //   return std::numeric_limits<int>::max(); // Use
-  //                                           // std::numeric_limits<int>::max()
-  // }
-
   Node *temp = head;
   for (int i = 1; i < pos && temp; ++i) {
     temp = temp->getLink();
