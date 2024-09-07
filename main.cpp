@@ -4,6 +4,7 @@
 #include "Node.h"
 #include "LinkedList.h"
 
+//for Node.h, Linklist.h only
 using namespace std;
 
 vector<int> split_to_ints(string input,string valid) {
