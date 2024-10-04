@@ -2,9 +2,9 @@
 #include <iostream>
 
 int main(void) {
-    AutoComplete autocomplete;
+    Autocomplete autocomplete;
     autocomplete.insert("hello");
 
     //check if the word is in the trie
-    
+
 }

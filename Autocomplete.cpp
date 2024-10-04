@@ -33,7 +33,7 @@ void Autocomplete:: insert(std::string word){
     current->isEnd = true;
 }
 
-void Autocomplete::searchPrefix(Node* node, std::string prefix, std::vector<std::string> result) {
+void Autocomplete::searchPrefix(Node* node, std::string prefix, std::vector<std::string>& result) {
     if (node->isEnd) {
         result.push_back(prefix);
     }
