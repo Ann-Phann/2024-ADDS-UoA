@@ -46,19 +46,23 @@ void Autocomplete::searchPrefix(Node* node, std::string prefix, std::vector<std:
 std::vector<std::string> Autocomplete::getSuggestions(std::string partialWord) {
     std::vector<std::string> result;
     Node* current = root;
-    
+    std::string traverseUntil = "";
+
     //get each character in the word
     for (int i = 0; i < partialWord.length(); i++) {
         char character = partialWord[i];
 
         //if reach 'end' and can't find that character: add new character in
         if (current->children.find(character) == current->children.end()) {
-            return result;
-        }
+            break;
+        } else {
+            traverseUntil += character;
         //if find out, get into that character/that spot
-        current = current->children[character];
+            current = current->children.find(character)->second;
+        }
     }
-
-    searchPrefix(current, partialWord, result);
+    if (traverseUntil == partialWord) {
+        searchPrefix(current, partialWord, result);
+    }
     return result;
 }
