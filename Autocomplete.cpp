@@ -49,8 +49,7 @@ std::vector<std::string> Autocomplete::getSuggestions(std::string partialWord) {
     std::string traverseUntil = "";
 
     //get each character in the word
-    for (int i = 0; i < partialWord.length(); i++) {
-        char character = partialWord[i];
+    for (auto character : partialWord) {
 
         //if reach 'end' and can't find that character: add new character in
         if (current->children.find(character) == current->children.end()) {
@@ -66,3 +65,4 @@ std::vector<std::string> Autocomplete::getSuggestions(std::string partialWord) {
     }
     return result;
 }
+
