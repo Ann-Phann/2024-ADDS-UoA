@@ -198,7 +198,7 @@ class Heap {
             }
 
             //if can't find the value
-            if (indexBeRemoved = -1) {
+            if (indexBeRemoved == -1) {
                 std::__throw_runtime_error("Value not in the heap");
                 return;
             }
