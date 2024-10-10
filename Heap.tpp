@@ -210,7 +210,7 @@ class Heap {
 
             //restore heap properties
             // Heapify down if necessary (if the swapped element is greater than its children)
-            heapify(indexBeRemoved);
+            heapifyDown(indexBeRemoved);
 
         }
         
