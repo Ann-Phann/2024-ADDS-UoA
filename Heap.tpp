@@ -17,7 +17,7 @@ class Heap {
     private:
         // Define an alias for the underlying data structure (vector) and its size type
         typedef std::vector<T> heap;
-        typedef heap::size_type heapIndex;
+        typedef typename heap::size_type heapIndex;
         
         // Internal storage for the heap elements
         heap tree;
@@ -165,7 +165,7 @@ class Heap {
 
             // Heapify up to restore the min-heap property
             while (index > 1) {
-                heapIndex parentIndex = getParentPosition();
+                heapIndex parentIndex = getParentPosition(index);
 
                 //if the parent is larger than newly added element, swap
                 if (this->tree.at(parentIndex) > this->tree.at(index)) {
