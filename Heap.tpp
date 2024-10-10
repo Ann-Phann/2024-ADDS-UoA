@@ -27,7 +27,7 @@ class Heap {
             // Left child is at index 2 * i
             return (2 * i);
         }
-        
+         
         heapIndex getRightChildPosition(heapIndex i) {
             // Right child is at index (2 * i) + 1
             return (2 * i) + 1;
@@ -183,9 +183,9 @@ class Heap {
         // TO BE IMPLEMENTED
         // Remove an element from the heap
         void remove(T value) {
-            if (this->isHeapEmpty()) {
-                std::__throw_runtime_error("Heap is empty"); 
-            }
+            // if (this->isHeapEmpty()) {
+            //     std::__throw_runtime_error("Heap is empty"); 
+            // }
             int lastIndex = tree.size() - 1;
 
             int indexBeRemoved = -1; // consider if we can't find the value
@@ -199,7 +199,7 @@ class Heap {
 
             //if can't find the value
             if (indexBeRemoved == -1) {
-                std::__throw_runtime_error("Value not in the heap");
+                //std::__throw_runtime_error("Value not in the heap");
                 return;
             }
             //swap the element need to be removed with last element
@@ -209,6 +209,20 @@ class Heap {
             tree.pop_back(); 
 
             //restore heap properties
+            // 1. Heapify down if necessary (if the swapped element is greater than its children)
+            if (indexBeRemoved < tree.size()) {
+                heapIndex newPos = heapifyDown(indexBeRemoved);
+                // 2. If the new position of the element still violates the heap property with its parent,
+                //    heapify up from that position
+                if (newPos == tree.size()) {
+                    heapIndex parentIndex = getParentPosition(indexBeRemoved);
+                    while (indexBeRemoved > 1 && tree.at(indexBeRemoved) < tree.at(parentIndex)) {
+                        std::swap(tree.at(indexBeRemoved), tree.at(parentIndex));
+                        indexBeRemoved = parentIndex;
+                        parentIndex = getParentPosition(indexBeRemoved);
+                    }
+                }
+            }
 
         }
         
