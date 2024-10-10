@@ -209,20 +209,8 @@ class Heap {
             tree.pop_back(); 
 
             //restore heap properties
-            // 1. Heapify down if necessary (if the swapped element is greater than its children)
-            if (indexBeRemoved < tree.size()) {
-                heapIndex newPos = heapifyDown(indexBeRemoved);
-                // 2. If the new position of the element still violates the heap property with its parent,
-                //    heapify up from that position
-                if (newPos == tree.size()) {
-                    heapIndex parentIndex = getParentPosition(indexBeRemoved);
-                    while (indexBeRemoved > 1 && tree.at(indexBeRemoved) < tree.at(parentIndex)) {
-                        std::swap(tree.at(indexBeRemoved), tree.at(parentIndex));
-                        indexBeRemoved = parentIndex;
-                        parentIndex = getParentPosition(indexBeRemoved);
-                    }
-                }
-            }
+            // Heapify down if necessary (if the swapped element is greater than its children)
+            heapify(indexBeRemoved);
 
         }
         
