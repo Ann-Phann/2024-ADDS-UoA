@@ -10,7 +10,7 @@ void DocumentManager::addDocument(std::string name, int id, int license_limit) {
 
     //if can't find out --> add new one
     //create new document
-    Document newdoc(name, id, license_limit);
+    Document* newdoc = new Document(name, id, license_limit);
 
     //insert by name and id: key:name-value:id
     documentName_ID[name] = id;
@@ -45,8 +45,8 @@ bool DocumentManager:: borrowDocument(int docid, int patronID) {
         return false;
     }
 
-    Document &doc = it->second;
-    if (doc.borrow()) {
+    Document* doc = it->second;
+    if (doc->borrow()) {
         return true;
     }
     return false;
@@ -65,6 +65,13 @@ void DocumentManager:: returnDocument(int docid, int patronID) {
     }
 
     // Return the document
-    Document& doc = it->second;
-    doc.returnCopy();
+    Document* doc = it->second;
+    doc->returnCopy();
+}
+DocumentManager::~DocumentManager() {
+    // Properly delete all dynamically allocated Document objects
+    for (auto& pair : storeDocument) {
+        delete pair.second;  // Free memory for each Document
+    }
+    storeDocument.clear();
 }

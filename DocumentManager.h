@@ -12,7 +12,7 @@ private:
     std::unordered_map <std::string, int> documentName_ID;
 
     //store document objects by id
-    std::unordered_map <int, Document> storeDocument;
+    std::unordered_map <int, Document*> storeDocument;
 
     //store patron ID
     std::unordered_set <int> patrons;
@@ -30,5 +30,7 @@ public:
     bool borrowDocument(int docid, int patronID);  // returns true if document is borrowed, false if it can not be borrowed (invalid patronid or the number of copies current borrowed has reached the license limit)
 
     void returnDocument(int docid, int patronID);
+
+    ~DocumentManager();
 };
 #endif
